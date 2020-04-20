@@ -1,0 +1,38 @@
+{
+  "private": false,
+  "name": "web",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "empty-cache": "gatsby clean",
+    "start": "npm run develop",
+    "lint": "eslint . --ext '.js,.jsx,.ts,.tsx'",
+    "format": "eslint . --ext '.js,.jsx,.ts,.tsx' --fix",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/image-url": "^0.140.15",
+    "date-fns": "^2.12.0",
+    "dotenv": "^8.1.0",
+    "gatsby": "^2.18.7",
+    "gatsby-plugin-manifest": "^2.3.5",
+    "gatsby-plugin-offline": "^3.1.4",
+    "gatsby-plugin-react-helmet": "^3.1.16",
+    "gatsby-plugin-typescript": "^2.3.3",
+    "gatsby-source-sanity": "^5.0.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-react": "^7.19.0",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  }
+}
