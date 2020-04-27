@@ -25,10 +25,5 @@ export default {
         layout: "tags",
       },
     },
-    {
-      name: "author",
-      title: "Author",
-      type: "string",
-    },
   ],
 };

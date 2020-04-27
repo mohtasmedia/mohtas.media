@@ -1,6 +1,6 @@
 export default {
-  name: "post",
-  title: "Blog Post",
+  name: "article",
+  title: "Article",
   type: "document",
   fields: [
     {
@@ -12,8 +12,6 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
-      description:
-        "Some frontend will require a slug to be set to be able to show the post",
       options: {
         source: "title",
         maxLength: 96,
@@ -22,25 +20,12 @@ export default {
     {
       name: "publishedAt",
       title: "Published at",
-      description:
-        "You can use this field to schedule post where you show them",
       type: "datetime",
     },
     {
       name: "excerpt",
       title: "Excerpt",
       type: "blockText",
-    },
-    {
-      name: "authors",
-      title: "Authors",
-      type: "array",
-      of: [{ type: "postAuthor" }],
-    },
-    {
-      name: "mainImage",
-      title: "Main image",
-      type: "mainImage",
     },
     {
       name: "categories",
@@ -76,15 +61,13 @@ export default {
     select: {
       title: "title",
       publishedAt: "publishedAt",
-      image: "mainImage",
     },
-    prepare({ title = "No title", publishedAt, image }) {
+    prepare({ title = "No title", publishedAt }) {
       return {
         title,
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
           : "Missing publishing date",
-        media: image,
       };
     },
   },

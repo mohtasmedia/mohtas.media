@@ -23,16 +23,23 @@ const {
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-typescript`,
+    "gatsby-plugin-preload-link-crossorigin",
+    "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-subfont",
+      options: {
+        silent: true,
+        fallback: false,
+        inlineFonts: true,
+      },
+    },
     {
       resolve: "gatsby-source-sanity",
       options: {
         projectId,
         dataset,
         token: process.env.SANITY_TOKEN,
-        watchMode: true,
-        overlayDrafts: true,
       },
     },
     {
