@@ -35,12 +35,12 @@ interface HeadProps {
   keywords?: string[];
 }
 
-const Head = ({
-  description = "",
-  meta = [],
-  keywords = [],
-  title,
-}: HeadProps) => {
+const preconnect = [
+  "https://fonts.gstatic.com",
+  "https://fonts.googleapis.com",
+];
+
+const Head = ({ description = "", keywords = [], title }: HeadProps) => {
   const { site } = useStaticQuery(graphql`
     query {
       site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -55,73 +55,30 @@ const Head = ({
 
   return (
     <>
-      <Helmet
-        htmlAttributes={{
-          lang: "en",
-        }}
-        title={title}
-        titleTemplate={title === site.title ? "%s" : `%s | ${site.title}`}
-        meta={[
-          {
-            name: "description",
-            content: metaDescription,
-          },
-          {
-            property: "og:title",
-            content: title,
-          },
-          {
-            property: "og:description",
-            content: metaDescription,
-          },
-          {
-            property: "og:type",
-            content: "website",
-          },
-          {
-            name: "twitter:card",
-            content: "summary",
-          },
-          {
-            name: "twitter:creator",
-            content: site.twitterHanlde || "@mohtasmedia",
-          },
-          {
-            name: "twitter:title",
-            content: title,
-          },
-          {
-            name: "twitter:description",
-            content: metaDescription,
-          },
-        ]
-          .concat(
-            keywords && keywords.length > 0
-              ? {
-                  name: "keywords",
-                  content: keywords.join(", "),
-                }
-              : []
-          )
-          .concat(meta)}
-      >
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com/"
-          crossOrigin=""
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com/"
-          crossOrigin=""
-        />
+      <GlobalStyle />
+
+      <Helmet titleTemplate={`%s | ${site.title}`}>
+        <html lang="en" />
+        <title>{title}</title>
+        <meta property="og:type" content={"website"} />
+        <meta name="twitter:card" content={"summary"} />
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta name="twitter:creator" content={site.twitterHandle} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="keywords" content={keywords.join(", ")} />
+
+        {preconnect.map((url, i) => (
+          <link key={i} rel="preconnect" href={url} crossOrigin="" />
+        ))}
+
         <link
           href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@0;1&display=swap"
           rel="stylesheet"
         />
       </Helmet>
-
-      <GlobalStyle />
     </>
   );
 };
