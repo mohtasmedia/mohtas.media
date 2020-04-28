@@ -1,5 +1,3 @@
-// export const cn = (...args) => args.filter(Boolean).join(" ");
-
 export const mapEdgesToNodes = (data) =>
   data.edges ? data.edges.map((edge) => edge.node) : [];
 

@@ -13,14 +13,10 @@
     "postinstall": "lerna bootstrap",
     "sanity-deploy": "lerna run sanity-deploy",
     "start": "lerna run empty-cache && lerna run start --parallel",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lerna run test"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "6.6.0",
-    "eslint-config-prettier": "^6.10.1",
     "lerna": "^3.14.1",
-    "prettier": "^2.0.4",
     "rimraf": "^3.0.2"
   }
 }

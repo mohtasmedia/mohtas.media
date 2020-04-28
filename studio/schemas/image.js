@@ -1,6 +1,6 @@
 export default {
   name: "figure",
-  title: "Figure",
+  title: "Image",
   type: "image",
   options: {
     hotspot: true,
