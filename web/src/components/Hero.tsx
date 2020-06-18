@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Container from "./Container";
 
-export const Hero = ({ title }) => (
+export const Hero = () => (
   <Wrapper>
     <Text>
       From concept to launch. <br />
       Successful and scalable mobile, web and desktop apps.
     </Text>
-    <Text>{`Made by ${title}.`}</Text>
+    <Text>Made by Mohtas Media.</Text>
   </Wrapper>
 );
 

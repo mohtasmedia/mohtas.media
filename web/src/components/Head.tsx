@@ -40,7 +40,7 @@ const preconnect = [
   "https://fonts.googleapis.com",
 ];
 
-const Head = ({ description = "", keywords = [], title }: HeadProps) => {
+const Head = ({ description = "", keywords = [], title = "" }: HeadProps) => {
   const { site } = useStaticQuery(graphql`
     query {
       site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -57,7 +57,7 @@ const Head = ({ description = "", keywords = [], title }: HeadProps) => {
     <>
       <GlobalStyle />
 
-      <Helmet titleTemplate={`%s | ${site.title}`}>
+      <Helmet defaultTitle={site.title} titleTemplate={`%s | ${site.title}`}>
         <html lang="en" />
         <title>{title}</title>
         <meta property="og:type" content={"website"} />

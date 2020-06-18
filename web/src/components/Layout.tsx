@@ -20,13 +20,11 @@ const LayoutContainer = ({
       <>
         <Head title={title} />
 
-        <LogoBookend title={title} />
-
-        <Hero title={title} />
+        <LogoBookend />
 
         {children}
 
-        <LogoBookend title={title} orientation="right" />
+        <LogoBookend orientation="right" />
       </>
     )}
   </>
