@@ -4,15 +4,13 @@ import styled from "styled-components";
 import Logo from "./Logo";
 
 const LogoBookend = ({
-  title,
   orientation = "left",
 }: {
-  title: string;
   orientation?: "left" | "right";
 }) => (
   <Wrapper orientation={orientation}>
     <Link to="/">
-      <Logo title={title} height={80} />
+      <Logo height={80} />
     </Link>
   </Wrapper>
 );
