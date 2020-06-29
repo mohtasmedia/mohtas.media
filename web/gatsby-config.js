@@ -23,7 +23,6 @@ const {
 
 module.exports = {
   plugins: [
-    "gatsby-plugin-preload-link-crossorigin",
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
     {

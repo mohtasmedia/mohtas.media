@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   padding: 2rem 0;
 
   @media screen and (min-width: 64rem) {
-    padding: 5rem 0;
+    padding: 8rem 0;
   }
 `;
 
@@ -40,7 +40,7 @@ const Text = styled.p`
   font-size: 1.25rem;
   border-left: 0.25rem solid black;
   padding: 0.5rem 0;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
 
   &:not(:last-child) {
     margin: 0 0 4rem;
@@ -49,7 +49,7 @@ const Text = styled.p`
   @media screen and (min-width: 64rem) {
     font-size: 1.75rem;
     padding: 1rem 0;
-    padding-left: 2rem;
+    padding-left: 4rem;
     border-width: 0.5rem;
   }
 `;

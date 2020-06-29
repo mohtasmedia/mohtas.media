@@ -22,14 +22,14 @@ const Wrapper = styled.div`
   padding-bottom: 6rem;
 
   @media screen and (min-width: 64rem) {
-    padding-top: 8rem;
-    padding-bottom: 15rem;
+    padding-top: 7rem;
+    padding-bottom: 12rem;
   }
 `;
 
 const Text = styled.p`
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
 
   &:not(:last-child)::not(:only-child) {
@@ -37,7 +37,7 @@ const Text = styled.p`
   }
 
   @media screen and (min-width: 64rem) {
-    font-size: 2.75rem;
+    font-size: 3.25rem;
 
     &:not(:last-child) {
       margin: 0 0 4rem;
