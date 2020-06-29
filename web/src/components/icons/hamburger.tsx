@@ -1,7 +1,8 @@
 import React from "react";
 
-const HamburgerIcon = () => (
+export const HamburgerIcon = ({ className }) => (
   <svg
+    className={className}
     viewBox="0 0 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -14,5 +15,3 @@ const HamburgerIcon = () => (
     <path d="M5 17.5H20" stroke="currentColor" />
   </svg>
 );
-
-export default HamburgerIcon;

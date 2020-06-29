@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as LinkBase } from "gatsby";
 import styled from "styled-components";
-import Logo from "./Logo";
+import LogoBase from "./Logo";
 
 const LogoBookend = ({
   orientation = "left",
@@ -10,21 +10,29 @@ const LogoBookend = ({
 }) => (
   <Wrapper orientation={orientation}>
     <Link to="/">
-      <Logo height={80} />
+      <Logo />
     </Link>
   </Wrapper>
 );
 
 const Link = styled(LinkBase)`
   color: white;
-  background-color: #0d0d0d;
+  background-color: rgb(38, 38, 38);
   padding-right: 0;
   display: block;
   margin: 2rem;
 `;
 
+const Logo = styled(LogoBase)`
+  width: 4rem;
+
+  @media screen and (min-width: 64rem) {
+    width: 5rem;
+  }
+`;
+
 const Wrapper = styled.nav`
-  background-color: #0d0d0d;
+  background-color: rgb(38, 38, 38);
   width: 100%;
   display: flex;
   align-items: baseline;
@@ -36,9 +44,14 @@ const Wrapper = styled.nav`
   &:after {
     content: "";
     display: block;
-    height: 8px;
-    width: calc(100% - 12rem);
+    height: 0.25rem;
+    width: calc(100% - 8rem);
     background-color: white;
+
+    @media screen and (min-width: 64rem) {
+      height: 0.5rem;
+      width: calc(100% - 10rem);
+    }
   }
 
   ${Link} {
