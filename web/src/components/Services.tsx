@@ -35,12 +35,12 @@ export const Hero = () => (
 
 const Wrapper = styled.div`
   background-color: rgb(38, 38, 38);
-  padding: 4rem 2rem;
+  padding: 2rem 0;
   color: white;
   fill: white;
 
   @media screen and (min-width: 64rem) {
-    padding: 10rem 2rem;
+    padding: 8rem 0;
   }
 `;
 
@@ -56,20 +56,49 @@ const Title = styled.h3`
 
 const List = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: -1rem;
+
+  @media screen and (min-width: 40rem) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: 64rem) {
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
 `;
 
 const Item = styled.li`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 40rem) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: 64rem) {
+    width: 25%;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
 `;
 
 const Icon = styled(IconBase)`
-  width: 8rem;
+  width: 6rem;
   display: block;
   margin-bottom: 1rem;
+
+  @media screen and (min-width: 64rem) {
+    width: 8rem;
+  }
 `;
 
 export default Hero;

@@ -4,6 +4,24 @@ import { useStaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/robotomono/v11/L0x5DF4xlVMF-BfR8bXMIjhLq38.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/robotoslab/v12/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  
   *, *::after, *::before {
     box-sizing: border-box;
   }
@@ -36,11 +54,6 @@ interface HeadProps {
   keywords?: string[];
 }
 
-const preconnect = [
-  "https://fonts.gstatic.com",
-  "https://fonts.googleapis.com",
-];
-
 const Head = ({ description = "", keywords = [], title = "" }: HeadProps) => {
   const { site } = useStaticQuery(graphql`
     query {
@@ -70,15 +83,6 @@ const Head = ({ description = "", keywords = [], title = "" }: HeadProps) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="keywords" content={keywords.join(", ")} />
-
-        {preconnect.map((url, i) => (
-          <link key={i} rel="preconnect" href={url} crossOrigin="" />
-        ))}
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
       </Helmet>
     </>
   );
