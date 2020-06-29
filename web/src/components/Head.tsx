@@ -54,6 +54,8 @@ interface HeadProps {
   keywords?: string[];
 }
 
+const preconnect = ["https://fonts.gstatic.com"];
+
 const Head = ({ description = "", keywords = [], title = "" }: HeadProps) => {
   const { site } = useStaticQuery(graphql`
     query {
@@ -83,6 +85,10 @@ const Head = ({ description = "", keywords = [], title = "" }: HeadProps) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="keywords" content={keywords.join(", ")} />
+
+        {preconnect.map((url, i) => (
+          <link key={i} rel="preconnect" href={url} crossOrigin="" />
+        ))}
       </Helmet>
     </>
   );
