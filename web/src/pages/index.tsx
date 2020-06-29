@@ -5,7 +5,7 @@ import { ArticleGrid, Layout, Hero, Intro, Services } from "../components";
 
 export const query = graphql`
   query IndexPageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
       title
     }
 
@@ -34,7 +34,6 @@ const IndexPage = ({ data, errors }) => {
   const articleNodes = (data || {}).articles
     ? mapEdgesToNodes(data.articles).filter(filterOutDocsWithoutSlugs)
     : [];
-  console.log(data);
 
   return (
     <Layout errors={errors}>
@@ -44,7 +43,7 @@ const IndexPage = ({ data, errors }) => {
 
       <Services />
 
-      {articleNodes && <ArticleGrid nodes={articleNodes} />}
+      {articleNodes.length > 0 && <ArticleGrid nodes={articleNodes} />}
     </Layout>
   );
 };
