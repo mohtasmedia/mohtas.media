@@ -1,8 +1,8 @@
 import React from "react";
 import LogoBookend from "./LogoBookend";
-import Hero from "./Hero";
 import Head from "./Head";
 import GraphqlError from "./GraphqlError";
+import styled from "styled-components";
 
 const LayoutContainer = ({
   children,
@@ -18,16 +18,26 @@ const LayoutContainer = ({
       <GraphqlError errors={errors} />
     ) : (
       <>
-        <Head title={title} />
+        <Wrapper>
+          <Head title={title} />
 
-        <LogoBookend />
+          <LogoBookend />
 
-        {children}
+          {children}
+        </Wrapper>
 
         <LogoBookend orientation="right" />
       </>
     )}
   </>
 );
+
+const Wrapper = styled.div`
+  min-height: calc(100vh - 7.3125rem);
+
+  @media screen and (min-width: 64rem) {
+    min-height: calc(100vh - 8.125rem);
+  }
+`;
 
 export default LayoutContainer;

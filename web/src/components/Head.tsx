@@ -12,13 +12,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     height: 100%;
     min-height: 100%;
-    color: #0d0d0d;
-    font-family: 'Courier Prime', monospace;
-    background-color: #0d0d0d;
+    color: rgb(38, 38, 38);
+    font-family: 'Roboto Slab', monospace;
+    background-color: white;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
   }
 
   ul {
@@ -75,7 +76,7 @@ const Head = ({ description = "", keywords = [], title = "" }: HeadProps) => {
         ))}
 
         <link
-          href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@0;1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </Helmet>

@@ -44,10 +44,10 @@ const Content = styled(Container)`
 
 const Title = styled.h3`
   font-size: 2rem;
-  padding: 1rem 2rem 0.75rem;
+  padding: 1rem 2rem;
   text-align: center;
-  border-top: 0.25rem #0d0d0d solid;
-  border-bottom: 0.25rem #0d0d0d solid;
+  border-top: 0.25rem rgb(38, 38, 38) solid;
+  border-bottom: 0.25rem rgb(38, 38, 38) solid;
   display: inline-block;
   margin: 5rem 0 0;
   position: relative;
@@ -58,48 +58,40 @@ const Title = styled.h3`
     display: block;
     width: 0.25rem;
     height: 5rem;
-    background-color: #0d0d0d;
+    background-color: rgb(38, 38, 38);
     margin: 0 auto;
     position: absolute;
     top: -5.25rem;
     left: 50%;
     transform: translateX(-50%);
+
+    @media screen and (min-width: 64rem) {
+      width: 0.5rem;
+      top: -5.5rem;
+    }
+  }
+
+  @media screen and (min-width: 64rem) {
+    border-width: 0.5rem;
   }
 `;
 
 const ArticleList = styled.ul`
   width: 100%;
   font-size: 1.25rem;
-  padding: 3rem 0 0;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 3rem 0;
 
   a {
-    color: #0d0d0d;
+    color: rgb(38, 38, 38);
     text-decoration: none;
     display: block;
   }
 
   li {
-    width: calc(33% - 1rem);
     transition: transform 0.3s ease-out;
     position: relative;
     z-index: 2;
     margin: 0.5rem;
-
-    &:before {
-      z-index: -1;
-      display: block;
-      width: 100%;
-      height: 100%;
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      transition: opacity 0.1s ease-out;
-      box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.15);
-      opacity: 0;
-    }
   }
 
   li:hover {
@@ -113,19 +105,15 @@ const ArticleList = styled.ul`
   p {
     margin: 0;
     padding: 0 2rem 2rem;
-  }
-
-  span {
-    display: block;
-    padding: 0 2rem 1rem;
+    color: rgb(100, 100, 100);
   }
 `;
 
 const ArticleTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   padding: 2rem 0 1rem;
-  margin: 0 2rem 1rem;
-  border-bottom: 2px solid #0d0d0d;
+  margin: 0 2rem;
+  font-family: "Roboto Slab", monospace;
 `;
 
 export default ArticleGrid;
