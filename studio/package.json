@@ -19,7 +19,7 @@
     "@sanity/cli": "^1.149.9",
     "@sanity/components": "^1.148.5",
     "@sanity/core": "^1.148.5",
-    "@sanity/default-layout": "^1.148.5",
+    "@sanity/default-layout": "^1.149.15",
     "@sanity/default-login": "^1.148.1",
     "@sanity/desk-tool": "^1.148.4",
     "@sanity/vision": "^1.149.0",
