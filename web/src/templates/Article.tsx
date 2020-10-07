@@ -1,5 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
+import format from "date-fns/format";
+import styled from "styled-components";
 import { Article, Layout } from "../components";
 
 export const query = graphql`
@@ -10,18 +12,110 @@ export const query = graphql`
       slug {
         current
       }
+      publishedAt
+      _updatedAt
+      author {
+        name
+      }
       _rawBody
     }
   }
 `;
 
-const ArticleTemplate = ({ data: { article }, errors }) => (
+const ArticleHero = ({ title, author, published, updated }) => {
+  const formatted = {
+    published: format(new Date(published), "dd MMM yyyy"),
+    updated: format(new Date(updated), "dd MMM yyyy"),
+  };
+  const isUpdated = formatted.updated !== formatted.published;
+
+  return (
+    <Wrapper>
+      <Content>
+        <Title>{title}</Title>
+      </Content>
+
+      <Meta>
+        <Author>{author}</Author>
+        <Published>
+          {isUpdated ? formatted.published.slice(0, -4) : formatted.published}
+        </Published>
+        {isUpdated && <Updated>Updated {formatted.updated}</Updated>}
+      </Meta>
+    </Wrapper>
+  );
+};
+
+const ArticleTemplate = ({
+  data: {
+    article: { title, publishedAt, _updatedAt, author, ...article },
+  },
+  errors,
+}) => (
   <Layout
-    title={errors ? "GraphQL Error" : article.title || "Untitled"}
+    title={errors ? "GraphQL Error" : title || "Untitled"}
     errors={errors}
   >
-    {article && <Article {...article} />}
+    <ArticleHero
+      title={title}
+      published={publishedAt}
+      updated={_updatedAt}
+      author={author.name}
+    />
+
+    <ArticleWrapper>{article && <Article {...article} />}</ArticleWrapper>
   </Layout>
 );
+
+const Wrapper = styled.div`
+  background: rgb(38, 38, 38);
+  padding: 6rem 0 13rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+`;
+
+const Content = styled.div`
+  width: 56.25rem;
+  text-align: center;
+  flex-direction: column;
+`;
+
+const Meta = styled.div`
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  border-top: white solid 0.5rem;
+  margin: 0 2rem 2rem;
+  padding-top: 1rem;
+  width: calc(100% - 7rem);
+  position: absolute;
+  bottom: 0;
+`;
+
+const Author = styled.span`
+  font-weight: bold;
+  margin-right: 1rem;
+`;
+
+const Title = styled.h1`
+  margin: 0;
+  font-size: 2.5rem;
+`;
+
+const Published = styled.span``;
+
+const Updated = styled.span`
+  font-style: italic;
+  margin-left: 0.25rem;
+`;
+
+const ArticleWrapper = styled.div`
+  width: 90%;
+  max-width: 60rem;
+  margin: 4rem auto;
+`;
 
 export default ArticleTemplate;

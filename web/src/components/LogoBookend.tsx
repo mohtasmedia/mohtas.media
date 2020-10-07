@@ -20,7 +20,7 @@ const Link = styled(LinkBase)`
   background-color: rgb(38, 38, 38);
   padding-right: 0;
   display: block;
-  margin: 2rem;
+  margin: 2rem 3rem;
 `;
 
 const Logo = styled(LogoBase)`
@@ -50,7 +50,7 @@ const Wrapper = styled.nav`
 
     @media screen and (min-width: 64rem) {
       height: 0.5rem;
-      width: calc(100% - 10rem);
+      width: calc(100% - 11rem);
     }
   }
 

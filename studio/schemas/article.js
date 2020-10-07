@@ -38,6 +38,12 @@ export default {
       title: "Body",
       type: "blockContent",
     },
+    {
+      title: "Author",
+      name: "author",
+      type: "reference",
+      to: { type: "author" },
+    },
   ],
   orderings: [
     {
