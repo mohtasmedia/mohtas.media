@@ -36,11 +36,13 @@ const ArticleHero = ({ title, author, published, updated }) => {
       </Content>
 
       <Meta>
-        <Author>{author}</Author>
-        <Published>
-          {isUpdated ? formatted.published.slice(0, -4) : formatted.published}
-        </Published>
-        {isUpdated && <Updated>Updated {formatted.updated}</Updated>}
+        <MetaContent>
+          <Author>{author}</Author>
+          <Published>
+            {isUpdated ? formatted.published.slice(0, -4) : formatted.published}
+          </Published>
+          {isUpdated && <Updated>Updated {formatted.updated}</Updated>}
+        </MetaContent>
       </Meta>
     </Wrapper>
   );
@@ -69,7 +71,7 @@ const ArticleTemplate = ({
 
 const Wrapper = styled.div`
   background: rgb(38, 38, 38);
-  padding: 6rem 0 13rem;
+  padding: 6rem 0 14rem;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -78,31 +80,36 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-  width: 56.25rem;
+  max-width: 70rem;
+  width: 90%;
   text-align: center;
   flex-direction: column;
 `;
 
 const Meta = styled.div`
-  text-align: right;
-  display: flex;
-  justify-content: space-between;
   border-top: white solid 0.5rem;
   margin: 0 2rem 2rem;
   padding-top: 1rem;
   width: calc(100% - 7rem);
   position: absolute;
   bottom: 0;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
 `;
 
-const Author = styled.span`
-  font-weight: bold;
-  margin-right: 1rem;
+const MetaContent = styled.div`
+  width: 90%;
+  max-width: 70rem;
+  display: flex;
+  justify-content: space-between;
 `;
+
+const Author = styled.span``;
 
 const Title = styled.h1`
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
 `;
 
 const Published = styled.span``;
@@ -114,8 +121,9 @@ const Updated = styled.span`
 
 const ArticleWrapper = styled.div`
   width: 90%;
-  max-width: 60rem;
+  max-width: 70rem;
   margin: 4rem auto;
+  font-size: 1.5rem;
 `;
 
 export default ArticleTemplate;
