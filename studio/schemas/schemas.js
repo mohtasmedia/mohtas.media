@@ -6,6 +6,7 @@ import blockText from "./blockText";
 import category from "./category";
 import image from "./image";
 import article from "./article";
+import author from "./author";
 import project from "./project";
 import siteSettings from "./siteSettings";
 
@@ -18,6 +19,7 @@ export default createSchema({
     image,
     article,
     project,
+    author,
     siteSettings,
   ]),
 });
