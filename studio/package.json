@@ -10,7 +10,7 @@
     "format": "npm run lint -- --fix",
     "start": "sanity start",
     "build": "sanity build",
-    "test": "sanity check",
+    "test": "snyk test && sanity check",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
