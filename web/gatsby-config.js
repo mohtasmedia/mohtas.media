@@ -26,6 +26,7 @@ module.exports = {
     "gatsby-plugin-preload-link-crossorigin",
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-plugin-subfont",
       options: {
