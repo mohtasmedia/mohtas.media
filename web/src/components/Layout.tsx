@@ -1,34 +1,21 @@
 import React from "react";
 import LogoBookend from "./LogoBookend";
-import Head from "./Head";
-import GraphqlError from "./GraphqlError";
 import styled from "styled-components";
 
 const LayoutContainer = ({
   children,
-  title,
-  errors,
 }: {
   children: React.ReactNode;
-  title?: string;
   errors?: any;
 }) => (
   <>
-    {errors ? (
-      <GraphqlError errors={errors} />
-    ) : (
-      <>
-        <Wrapper>
-          <Head title={title} />
+    <Wrapper>
+      <LogoBookend />
 
-          <LogoBookend />
+      {children}
+    </Wrapper>
 
-          {children}
-        </Wrapper>
-
-        <LogoBookend orientation="right" />
-      </>
-    )}
+    <LogoBookend orientation="right" />
   </>
 );
 

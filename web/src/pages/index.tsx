@@ -1,12 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from "../lib/helpers";
-import { ArticleGrid, Layout, Hero, Intro, Services } from "../components";
+import { ArticleGrid, Seo, Hero, Intro, Services } from "../components";
 
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      description
+      keywords
     }
 
     articles: allSanityArticle(
@@ -30,22 +32,28 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({ data, errors }) => {
-  const articleNodes = (data || {}).articles
-    ? mapEdgesToNodes(data.articles).filter(filterOutDocsWithoutSlugs)
+const IndexPage = ({
+  data: {
+    site: { title, description, keywords },
+    articles = {},
+  },
+}) => {
+  const articleNodes = articles
+    ? mapEdgesToNodes(articles).filter(filterOutDocsWithoutSlugs)
     : [];
-  console.log(data);
 
   return (
-    <Layout errors={errors}>
-      <Hero title={data.site.title} />
+    <>
+      <Seo title={title} description={description || ""} keywords={keywords} />
+
+      <Hero title={title} />
 
       <Intro />
 
       <Services />
 
       {articleNodes && <ArticleGrid nodes={articleNodes} />}
-    </Layout>
+    </>
   );
 };
 
