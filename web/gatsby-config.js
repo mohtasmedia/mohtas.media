@@ -27,7 +27,6 @@ module.exports = {
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
-    "gatsby-plugin-remove-generator",
     {
       resolve: "gatsby-plugin-subfont",
       options: {
