@@ -37,7 +37,11 @@ const Head = ({ children }) => {
 };
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+);
+
+export const wrapPageElement = ({ element }) => (
+  <>
     <GlobalStyle />
 
     <Head>
@@ -59,5 +63,5 @@ export const wrapRootElement = ({ element }) => (
     </Head>
 
     <Layout>{element}</Layout>
-  </ThemeProvider>
+  </>
 );
