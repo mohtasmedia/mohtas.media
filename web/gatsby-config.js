@@ -27,6 +27,7 @@ module.exports = {
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-remove-generator",
     {
       resolve: "gatsby-plugin-subfont",
       options: {
@@ -51,7 +52,7 @@ module.exports = {
         name: "Mohtas Media",
         short_name: "Mohtas",
         start_url: "/",
-        background_color: "#000",
+        background_color: "#262626",
         theme_color: "#fff",
         display: "standalone",
         icon: "static/images/icon.png",

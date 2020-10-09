@@ -28,10 +28,10 @@ const ArticlePage = ({ data, errors }) => {
   const articleNodes = data?.articles && mapEdgesToNodes(data.articles);
 
   return (
-    <Layout title="Articles" errors={errors}>
+    <>
       <h1>Articles</h1>
       {articleNodes?.length > 0 && <ArticleGrid nodes={articleNodes} />}
-    </Layout>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { GraphQLError } from "graphql";
-import { Layout, Article } from "../components";
+import { Seo, Article } from "../components";
 
 export const query = graphql`
   query ArticleTemplateQuery($id: String!) {
@@ -21,6 +21,8 @@ type ArticleTemplateProps = {
     article?: {
       title: string;
       publishedAt: string;
+      description: string;
+      keywords: string[];
       author: {
         name: string;
       };
@@ -32,16 +34,17 @@ type ArticleTemplateProps = {
 
 const ArticleTemplate = ({
   data: {
-    article: { title, ...article },
+    article: { title, description, keywords, ...article },
   },
-  errors,
 }: ArticleTemplateProps) => (
-  <Layout
-    title={errors ? "GraphQL Error" : title || "Untitled"}
-    errors={errors}
-  >
+  <>
+    <Seo
+      title={title}
+      description={description || ""}
+      keywords={keywords || [""]}
+    />
     <Article title={title} article={article} />
-  </Layout>
+  </>
 );
 
 export default ArticleTemplate;
